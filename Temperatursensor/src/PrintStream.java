@@ -1,7 +1,7 @@
 
 public class PrintStream {
 
-	public static void main(String[] args) {
+	public void printStream() {
 		PrintStream ps = new PrintStream(os);
 		ps.println("Hello Stream");
 	}

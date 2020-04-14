@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class InputStream {
 
-	public static void main(String[] args) {
+	public void inputStream() {
 		InputStream is = null;
 		try {
 			is = new FileInputStream(filename);

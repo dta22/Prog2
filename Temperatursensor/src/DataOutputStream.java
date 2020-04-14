@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class DataOutputStream {
 
-	public static void main(String[] args) {
+	public void dataOutputStream() {
 
 		DataOutputStream dos = new DataOutputStream(os);
 		try {
@@ -13,5 +13,4 @@ public class DataOutputStream {
 		}
 
 	}
-
 }

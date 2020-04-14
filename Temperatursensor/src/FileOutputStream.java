@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class FileOutputStream {
 
-	public static void main(String[] args) {
+	public void fileOutputStream() {
 		throw new FileNotFoundException();
 
 		try {

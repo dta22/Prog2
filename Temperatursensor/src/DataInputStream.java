@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class DataInputStream {
 
-	public static void main(String[] args) {
+	public void dataInputStream() {
 
 		DataInputStream dis = new DataInputStream(is);
 		try {
