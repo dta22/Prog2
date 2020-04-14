@@ -1,5 +1,8 @@
 package filepersistence;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class WriteAndReadDataSet {
 	public static void main(String[] args) {
 		// three example data sets
@@ -31,8 +34,43 @@ public class WriteAndReadDataSet {
 
 		// write three data set into a file
 		// TODO: your job. use DataOutputStream / FileOutputStream
+		DataOutputStream dos = new DataOutputStream(os);
+		try {
+			dos.writeInt(42);
+		} catch (IOException ex) {
+			System.err.println("couldn’t write data (fatal)");
+			System.exit(0);
+		}
+
+		try {
+			String filename = "testFile.txt";
+			OutputStream os = new FileOutputStream(filename);
+		} catch (FileNotFoundException ex) {
+			System.err.println("couldn’t open file - fatal");
+			System.exit(0); // brutal exception handling
+		}
+
+		String someText = "Hallo";
+		byte[] textAsByte = someText.getBytes();
+		try {
+			os.write(textAsByte);
+		} catch (IOException ex) {
+			System.err.println("couldn’t write data (fatal)");
+			System.exit(0);
+
+		}
 
 		// read data from file and print to System.out
 		// TODO: your job use DataInputStream / FileInputStream
+		DataInputStream dis = new DataInputStream(is);
+		try {
+			int readIntValue = dis.readInt();
+			System.out.println("read integer: " + readIntValue);
+		} catch (IOException ex) {
+			System.err.println("couldn’t read data (fatal)");
+			System.exit(0);
+
+		}
+
 	}
 }
