@@ -1,5 +1,11 @@
+package filepersistence;
 
-//package filepersistence;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class WriteAndReadDataSet {
 	public static void main(String[] args) {
@@ -81,6 +87,10 @@ public class WriteAndReadDataSet {
 		// also diese Zahl aus dem File herauslsen
 		int numberSets = dis.readInt();
 
+		// als letzter Schritt (Challenge 2) wird an dieser Stelle eine Ausgabe
+		// produziert
+		System.out.println("number of data sets " + numberSets);
+
 		// numberSets nun für eine Schleife nutzen
 		while (numberSets > 0) {
 			numberSets--;
@@ -91,9 +101,11 @@ public class WriteAndReadDataSet {
 			// etwas rauskommt
 			// a) sensorname
 			String sensorNameReceived = dis.readUTF();
+			System.out.println("name sensor " + sensorNameReceived);
 
 			// b) timestamp
 			long timeStampReceived = dis.readLong();
+			System.out.println("timestamp " + timeStampReceived);
 
 			// c) values >> wichtig zu wissen wieviele Werte angelegt wurden >> dafür ein
 			// array anlegen vom typ float
@@ -104,8 +116,12 @@ public class WriteAndReadDataSet {
 				// float Wert den man herausbekommt muss gespeichert werden >> und zwar in dem
 				// array valuesReceived
 				valuesReceived[i] = dis.readFloat();
+				System.out.print("value [" + i + "]" + valuesReceived[i]);
 			}
+			System.out.println();
 		}
+
+		// folgende Code Zeilen hatten zu Beginn der Übung gedient
 		/*
 		 * DataOutputStream dos = new DataOutputStream(os); try { dos.writeInt(42); }
 		 * catch (IOException ex) { System.err.println("couldn’t write data (fatal)");
